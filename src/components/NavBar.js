@@ -1,5 +1,4 @@
 import React from 'react';
-import { MemoryRouter as Router } from 'react-router';
 import { Link as RouterLink } from 'react-router-dom';
 import { AppBar, Toolbar, Typography, Button } from '@material-ui/core';
 
@@ -10,17 +9,23 @@ const NavBar = () => (
         ReactJs / Material-UI / Contentful
       </Typography>
 
-      <Router>
-        <div style={{ marginLeft: 24 }}>
-          <Button color="inherit" component={RouterLink} to="/">
-            List
-          </Button>
+      <div style={{ marginLeft: 24 }}>
+        <Button color="inherit" component={RouterLink} to="/">
+          List
+        </Button>
 
-          <Button color="inherit" component={RouterLink} to="/new/">
-            Create
-          </Button>
-        </div>
-      </Router>
+        <Button color="inherit" component={RouterLink} to="/new/">
+          Create
+        </Button>
+
+        <Button color="inherit" component={RouterLink} to="/about/">
+          About
+        </Button>
+
+        <Button color="inherit" component={RouterLink} to="/test/">
+          Test
+        </Button>
+      </div>
     </Toolbar>
   </AppBar>
 );

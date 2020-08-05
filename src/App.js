@@ -1,12 +1,13 @@
 import React from 'react';
+import { HashRouter } from 'react-router-dom';
 import NavBar from './components/NavBar';
-import MainList from './containers/MainList';
+import Navigation from './components/Navigation';
 
 const App = () => (
-  <>
+  <HashRouter>
     <NavBar />
-    <MainList />
-  </>
+    <Navigation />
+  </HashRouter>
 );
 
 export default App;
