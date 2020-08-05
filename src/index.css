@@ -9,3 +9,23 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
+
+/* form > div {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: row nowrap;
+  flex-flow: row;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: 24px;
+}
+form > div > div {
+  -ms-flex: 1;
+  flex: 1;
+  max-width: 500px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: column nowrap;
+  flex-flow: column;
+  position: relative;
+} */
