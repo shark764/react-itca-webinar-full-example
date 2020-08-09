@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/itca-first-example/static/css/main.b5c59299.chunk.css",
-    "main.js": "/itca-first-example/static/js/main.43ee45fd.chunk.js",
-    "main.js.map": "/itca-first-example/static/js/main.43ee45fd.chunk.js.map",
-    "runtime-main.js": "/itca-first-example/static/js/runtime-main.2daa78b1.js",
-    "runtime-main.js.map": "/itca-first-example/static/js/runtime-main.2daa78b1.js.map",
-    "static/js/2.bd3b77ea.chunk.js": "/itca-first-example/static/js/2.bd3b77ea.chunk.js",
-    "static/js/2.bd3b77ea.chunk.js.map": "/itca-first-example/static/js/2.bd3b77ea.chunk.js.map",
-    "index.html": "/itca-first-example/index.html",
-    "precache-manifest.8b0ffdb6dd3f771736ad94c606578014.js": "/itca-first-example/precache-manifest.8b0ffdb6dd3f771736ad94c606578014.js",
-    "service-worker.js": "/itca-first-example/service-worker.js",
-    "static/css/main.b5c59299.chunk.css.map": "/itca-first-example/static/css/main.b5c59299.chunk.css.map",
-    "static/js/2.bd3b77ea.chunk.js.LICENSE.txt": "/itca-first-example/static/js/2.bd3b77ea.chunk.js.LICENSE.txt"
+    "main.css": "/react-itca-webinar-full-example/static/css/main.b5c59299.chunk.css",
+    "main.js": "/react-itca-webinar-full-example/static/js/main.1eabf7e1.chunk.js",
+    "main.js.map": "/react-itca-webinar-full-example/static/js/main.1eabf7e1.chunk.js.map",
+    "runtime-main.js": "/react-itca-webinar-full-example/static/js/runtime-main.7d096edc.js",
+    "runtime-main.js.map": "/react-itca-webinar-full-example/static/js/runtime-main.7d096edc.js.map",
+    "static/js/2.fb3dbd96.chunk.js": "/react-itca-webinar-full-example/static/js/2.fb3dbd96.chunk.js",
+    "static/js/2.fb3dbd96.chunk.js.map": "/react-itca-webinar-full-example/static/js/2.fb3dbd96.chunk.js.map",
+    "index.html": "/react-itca-webinar-full-example/index.html",
+    "precache-manifest.42a07e8d8925b970e12a65f1197988f0.js": "/react-itca-webinar-full-example/precache-manifest.42a07e8d8925b970e12a65f1197988f0.js",
+    "service-worker.js": "/react-itca-webinar-full-example/service-worker.js",
+    "static/css/main.b5c59299.chunk.css.map": "/react-itca-webinar-full-example/static/css/main.b5c59299.chunk.css.map",
+    "static/js/2.fb3dbd96.chunk.js.LICENSE.txt": "/react-itca-webinar-full-example/static/js/2.fb3dbd96.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.2daa78b1.js",
-    "static/js/2.bd3b77ea.chunk.js",
+    "static/js/runtime-main.7d096edc.js",
+    "static/js/2.fb3dbd96.chunk.js",
     "static/css/main.b5c59299.chunk.css",
-    "static/js/main.43ee45fd.chunk.js"
+    "static/js/main.1eabf7e1.chunk.js"
   ]
 }
