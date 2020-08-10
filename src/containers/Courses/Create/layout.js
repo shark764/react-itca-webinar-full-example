@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Grid,
   Typography,
@@ -13,10 +14,6 @@ import {
 import DeleteIcon from '@material-ui/icons/Delete';
 import SendIcon from '@material-ui/icons/Send';
 
-import * as contentful from 'contentful';
-import * as contentfulManagement from 'contentful-management';
-import { convertToKebabCase, SPACE_ID, ACCESS_TOKEN, ACCESS_TOKEN_MANAGEMENT, skillLevels } from '../utils';
-
 const useStyles = makeStyles(() => ({
   actions: {
     '& > *': {
@@ -29,102 +26,8 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const client = contentful.createClient({
-  space: SPACE_ID,
-  accessToken: ACCESS_TOKEN,
-});
-
-const clientManagement = contentfulManagement.createClient({
-  accessToken: ACCESS_TOKEN_MANAGEMENT,
-});
-
-const NewCourse = () => {
+const Layout = props => {
   const classes = useStyles();
-
-  const [title, setTitle] = useState('Hello World');
-  const [slug, setSlug] = useState('hello-world');
-  const [shortDescription, setShortDescription] = useState('');
-  const [description, setDescription] = useState('');
-  const [duration, setDuration] = useState(10);
-  const [skillLevel, setSkillLevel] = useState('beginner');
-  const [url, setUrl] = useState('https://the-example-app-nodejs.contentful.com/courses/hello-world');
-  const [image, setImage] = useState({});
-  const [assets, setAssets] = useState([]);
-
-  useEffect(() => {
-    client
-      .getAssets()
-      .then(response => {
-        const retrievedAssets = response.items.map(asset => ({
-          id: asset.sys.id,
-          title: asset.fields.title,
-          url: `https:${asset.fields.file.url}`,
-        }));
-
-        setAssets(retrievedAssets);
-      })
-      .catch(error => {
-        console.error(error);
-      });
-  }, []);
-
-  useEffect(() => {
-    const titleKebabFormatted = convertToKebabCase(title);
-    setSlug(titleKebabFormatted);
-    setUrl(`https://the-example-app-nodejs.contentful.com/courses/${titleKebabFormatted}`);
-  }, [title]);
-
-  const handleSubmit = e => {
-    e.preventDefault();
-
-    clientManagement.getSpace(SPACE_ID).then(space =>
-      space
-        .createEntry('course', {
-          fields: {
-            title: { 'en-US': title },
-            slug: { 'en-US': slug },
-            shortDescription: { 'en-US': shortDescription },
-            description: { 'en-US': description },
-            duration: { 'en-US': Number.parseInt(duration, 10) },
-            skillLevel: { 'en-US': skillLevel },
-            url: { 'en-US': url },
-            image: {
-              'en-US': {
-                sys: {
-                  id: image.id,
-                  linkType: 'Asset',
-                  type: 'Link',
-                },
-              },
-            },
-          },
-        })
-        .then(entry => {
-          /**
-           * Entry will be added as a draft,
-           * until we publish it
-           */
-          entry.publish();
-
-          console.log(`%cEntry ${entry.sys.id} created and published.`, 'background: #d7dae0; color: #282c34;', entry);
-        })
-        .catch(error => {
-          console.log('Error occurred while creating Entry');
-          console.error(error);
-        }),
-    );
-  };
-
-  const handleClear = () => {
-    setTitle('');
-    setSlug('');
-    setShortDescription('');
-    setDescription('');
-    setImage({});
-    setDuration(0);
-    setSkillLevel('');
-    setUrl('');
-  };
 
   return (
     <div style={{ padding: 40 }}>
@@ -132,7 +35,7 @@ const NewCourse = () => {
         New Course
       </Typography>
 
-      <form noValidate autoComplete="off" onSubmit={handleSubmit}>
+      <form noValidate autoComplete="off" onSubmit={props.handleSubmit}>
         <Grid container spacing={5} style={{ paddingTop: 24, paddingBottom: 24, paddingLeft: 0, paddingRight: 0 }}>
           <Grid item xs={12} sm={6} lg={4} xl={3}>
             <TextField
@@ -140,8 +43,8 @@ const NewCourse = () => {
               label="Course title"
               placeholder="add course title..."
               helperText="The title is needed for searching purpose"
-              value={title}
-              onChange={e => setTitle(e.target.value)}
+              value={props.title}
+              onChange={e => props.setTitle(e.target.value)}
               fullWidth
               margin="normal"
               variant="outlined"
@@ -152,8 +55,8 @@ const NewCourse = () => {
             <TextField
               required
               label="Course unique slug"
-              value={slug}
-              onChange={e => setSlug(e.target.value)}
+              value={props.slug}
+              onChange={e => props.setSlug(e.target.value)}
               placeholder="add course unique slug..."
               helperText="This will identify the task"
               fullWidth
@@ -167,8 +70,8 @@ const NewCourse = () => {
               label="Short description"
               multiline
               rows={4}
-              value={shortDescription}
-              onChange={e => setShortDescription(e.target.value)}
+              value={props.shortDescription}
+              onChange={e => props.setShortDescription(e.target.value)}
               placeholder="add course short description..."
               helperText="This will be shown as the description in the course list"
               fullWidth
@@ -182,8 +85,8 @@ const NewCourse = () => {
               label="Description"
               multiline
               rows={8}
-              value={description}
-              onChange={e => setDescription(e.target.value)}
+              value={props.description}
+              onChange={e => props.setDescription(e.target.value)}
               placeholder="add course complete description..."
               helperText="This description will be shown when course is open"
               fullWidth
@@ -196,8 +99,8 @@ const NewCourse = () => {
             <TextField
               label="Duration"
               type="number"
-              value={duration}
-              onChange={e => setDuration(e.target.value)}
+              value={props.duration}
+              onChange={e => props.setDuration(Number.parseInt(e.target.value, 10))}
               InputLabelProps={{
                 shrink: true,
               }}
@@ -213,14 +116,14 @@ const NewCourse = () => {
             <TextField
               select
               label="Skill level"
-              value={skillLevel}
-              onChange={e => setSkillLevel(e.target.value)}
+              value={props.skillLevel}
+              onChange={e => props.setSkillLevel(e.target.value)}
               helperText="What level is needed for this course?"
               fullWidth
               margin="normal"
               variant="outlined"
             >
-              {skillLevels.map(option => (
+              {props.skillLevels.map(option => (
                 <MenuItem key={option.value} value={option.value}>
                   {option.label}
                 </MenuItem>
@@ -234,8 +137,8 @@ const NewCourse = () => {
               multiline
               rows={4}
               placeholder="add course url..."
-              value={url}
-              onChange={e => setUrl(e.target.value)}
+              value={props.url}
+              onChange={e => props.setUrl(e.target.value)}
               helperText="The URL must match the pattern 'https://the-example-app-nodejs.contentful.com/courses/' + slug"
               fullWidth
               margin="normal"
@@ -251,14 +154,14 @@ const NewCourse = () => {
               }}
             >
               <GridList cellHeight={160} className={classes.gridList} cols={6} spacing={6}>
-                {assets.map(asset => (
+                {props.assets.map(asset => (
                   <GridListTile
                     key={asset.id}
                     cols={1}
                     rows={1}
-                    style={image.id === asset.id ? { border: '4px solid #3f51b5' } : {}}
+                    style={props.image.id === asset.id ? { border: '4px solid #3f51b5' } : {}}
                   >
-                    <img src={asset.url} alt={asset.title} onClick={() => setImage(asset)} />
+                    <img src={asset.url} alt={asset.title} onClick={() => props.setImage(asset)} />
                   </GridListTile>
                 ))}
               </GridList>
@@ -271,7 +174,7 @@ const NewCourse = () => {
             <Button type="submit" variant="contained" color="primary" endIcon={<SendIcon />}>
               Submit
             </Button>
-            <Button variant="contained" color="secondary" endIcon={<DeleteIcon />} onClick={handleClear}>
+            <Button variant="contained" color="secondary" endIcon={<DeleteIcon />} onClick={props.handleClear}>
               Clear
             </Button>
           </div>
@@ -281,4 +184,38 @@ const NewCourse = () => {
   );
 };
 
-export default NewCourse;
+Layout.propTypes = {
+  handleSubmit: PropTypes.func,
+  handleClear: PropTypes.func,
+  title: PropTypes.string,
+  setTitle: PropTypes.func,
+  slug: PropTypes.string,
+  setSlug: PropTypes.func,
+  shortDescription: PropTypes.string,
+  setShortDescription: PropTypes.func,
+  description: PropTypes.string,
+  setDescription: PropTypes.func,
+  duration: PropTypes.number,
+  setDuration: PropTypes.func,
+  skillLevel: PropTypes.string,
+  setSkillLevel: PropTypes.func,
+  skillLevels: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string,
+      value: PropTypes.string,
+    }),
+  ),
+  url: PropTypes.string,
+  setUrl: PropTypes.func,
+  image: PropTypes.shape({}),
+  setImage: PropTypes.func,
+  assets: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string,
+      url: PropTypes.string,
+      id: PropTypes.string,
+    }),
+  ),
+};
+
+export default Layout;

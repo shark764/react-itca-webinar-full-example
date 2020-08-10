@@ -16,7 +16,7 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import moment from 'moment';
 
-import { humanize } from '../utils';
+import { humanize } from '../../utils';
 
 /**
  * ---------------------------
