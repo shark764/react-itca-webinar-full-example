@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/react-itca-webinar-full-example/static/css/main.b5c59299.chunk.css",
-    "main.js": "/react-itca-webinar-full-example/static/js/main.34b0d175.chunk.js",
-    "main.js.map": "/react-itca-webinar-full-example/static/js/main.34b0d175.chunk.js.map",
+    "main.js": "/react-itca-webinar-full-example/static/js/main.ff686702.chunk.js",
+    "main.js.map": "/react-itca-webinar-full-example/static/js/main.ff686702.chunk.js.map",
     "runtime-main.js": "/react-itca-webinar-full-example/static/js/runtime-main.7d096edc.js",
     "runtime-main.js.map": "/react-itca-webinar-full-example/static/js/runtime-main.7d096edc.js.map",
     "static/js/2.e8f2dff6.chunk.js": "/react-itca-webinar-full-example/static/js/2.e8f2dff6.chunk.js",
     "static/js/2.e8f2dff6.chunk.js.map": "/react-itca-webinar-full-example/static/js/2.e8f2dff6.chunk.js.map",
     "index.html": "/react-itca-webinar-full-example/index.html",
-    "precache-manifest.1326a1a282254d0ff4d0188b3021d2f9.js": "/react-itca-webinar-full-example/precache-manifest.1326a1a282254d0ff4d0188b3021d2f9.js",
+    "precache-manifest.032b76598741c85b3f3c14859ac86380.js": "/react-itca-webinar-full-example/precache-manifest.032b76598741c85b3f3c14859ac86380.js",
     "service-worker.js": "/react-itca-webinar-full-example/service-worker.js",
     "static/css/main.b5c59299.chunk.css.map": "/react-itca-webinar-full-example/static/css/main.b5c59299.chunk.css.map",
     "static/js/2.e8f2dff6.chunk.js.LICENSE.txt": "/react-itca-webinar-full-example/static/js/2.e8f2dff6.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.7d096edc.js",
     "static/js/2.e8f2dff6.chunk.js",
     "static/css/main.b5c59299.chunk.css",
-    "static/js/main.34b0d175.chunk.js"
+    "static/js/main.ff686702.chunk.js"
   ]
 }
