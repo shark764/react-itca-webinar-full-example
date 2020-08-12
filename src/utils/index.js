@@ -22,3 +22,15 @@ export const humanize = str =>
     .replace(/[_\s]+/g, ' ')
     .replace(/[-\s]+/g, ' ')
     .replace(/^[a-z]/, match => match.toUpperCase());
+
+export const dataTransformer = courses =>
+  courses.map(item => ({
+    ...item.fields,
+    image: {
+      id: item.fields.image.sys.id,
+      title: item.fields.image.fields.title,
+      url: item.fields.image.fields.file.url,
+    },
+    id: item.sys.id,
+    createdAt: item.sys.createdAt,
+  }));

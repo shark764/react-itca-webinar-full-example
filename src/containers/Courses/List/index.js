@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import * as contentful from 'contentful';
 import Layout from './layout';
 
-import { SPACE_ID, ACCESS_TOKEN } from '../../../utils';
+import { SPACE_ID, ACCESS_TOKEN, dataTransformer } from '../../../utils';
 
 const client = contentful.createClient({
   space: SPACE_ID,
@@ -64,16 +64,7 @@ const List = () => {
          *    createdAt: string,
          *  };
          */
-        const fetchedCourses = response.items.map(item => ({
-          ...item.fields,
-          image: {
-            id: item.fields.image.sys.id,
-            title: item.fields.image.fields.title,
-            url: item.fields.image.fields.file.url,
-          },
-          id: item.sys.id,
-          createdAt: item.sys.createdAt,
-        }));
+        const fetchedCourses = dataTransformer(response.items);
         setCourses(fetchedCourses);
         console.log(`%cCourses fetched using... "${searchString}":`, 'background: #ccc; color: #444;', response.items);
       })
