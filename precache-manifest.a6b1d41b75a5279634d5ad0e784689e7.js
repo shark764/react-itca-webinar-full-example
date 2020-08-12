@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "8ec4fdcf5d8b94d7690b26e75cbe7b38",
+    "revision": "ae6b4bfd0cdda4bd843dc632e15489ad",
     "url": "/react-itca-webinar-full-example/index.html"
   },
   {
-    "revision": "44f777a861a42e957ceb",
+    "revision": "4b6bfd3c8037fb02f7f7",
     "url": "/react-itca-webinar-full-example/static/css/main.b5c59299.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/react-itca-webinar-full-example/static/js/2.e8f2dff6.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "44f777a861a42e957ceb",
-    "url": "/react-itca-webinar-full-example/static/js/main.ff686702.chunk.js"
+    "revision": "4b6bfd3c8037fb02f7f7",
+    "url": "/react-itca-webinar-full-example/static/js/main.6a5ba4d5.chunk.js"
   },
   {
     "revision": "4303f28f3c16f28bb766",
