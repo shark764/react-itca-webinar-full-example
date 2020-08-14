@@ -1,9 +1,3 @@
-export const SPACE_ID = 'srlpekq85luo';
-
-export const ACCESS_TOKEN = 'evMFF1eK--2PX6Qqrlq8glrKOurVH1pdvaI-FRgmufU';
-
-export const ACCESS_TOKEN_MANAGEMENT = 'CFPAT-WAjUteVc06b2IhNAw7_DXGQUXCmv0ZMc6_m9obcABag';
-
 export const skillLevels = [
   { value: 'beginner', label: 'Beginner' },
   { value: 'intermediate', label: 'Intermediate' },
@@ -22,15 +16,3 @@ export const humanize = str =>
     .replace(/[_\s]+/g, ' ')
     .replace(/[-\s]+/g, ' ')
     .replace(/^[a-z]/, match => match.toUpperCase());
-
-export const dataTransformer = courses =>
-  courses.map(item => ({
-    ...item.fields,
-    image: {
-      id: item.fields.image.sys.id,
-      title: item.fields.image.fields.title,
-      url: item.fields.image.fields.file.url,
-    },
-    id: item.sys.id,
-    createdAt: item.sys.createdAt,
-  }));

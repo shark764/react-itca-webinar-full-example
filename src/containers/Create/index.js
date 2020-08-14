@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 
 import * as contentful from 'contentful';
 import * as contentfulManagement from 'contentful-management';
-import { convertToKebabCase, SPACE_ID, ACCESS_TOKEN, ACCESS_TOKEN_MANAGEMENT, skillLevels } from '../../../utils';
+import { convertToKebabCase, skillLevels } from '../../utils';
+import { SPACE_ID, ACCESS_TOKEN, ACCESS_TOKEN_MANAGEMENT } from '../../utils/contentful';
 import Layout from './layout';
 
 /**
