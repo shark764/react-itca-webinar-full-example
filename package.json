@@ -2,7 +2,7 @@
   "name": "react-itca-webinar-full-example",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://shark764.github.io/react-itca-webinar-full-example",
+  "homepage": ".",
   "dependencies": {
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
@@ -22,6 +22,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "build": "react-scripts build",
+    "build:fix": "react-scripts build && echo '/* /index.html 200' | cat >build/_redirects ",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint .",
